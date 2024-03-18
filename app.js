@@ -5,11 +5,11 @@ const googleBookApi = require('./util/book_api');
 //to send response to google book api
 
 
-googleBookApi('Harry Potter');
+googleBookApi('harry potter');
 
 
 sequelize
-.sync({force: true})
+.sync()
 .then(()=>{
     app.listen(3000);})
 .catch(err=>{console.log(err);});
