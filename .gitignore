@@ -1,2 +1,3 @@
 node_modules
-database.jss
+database.js
+api_key.js
