@@ -1,6 +1,6 @@
 const express = require('express');
-const app = express;
-
+const app = express();
+const sequelize = require('./util/database');
 //to send response to google book api
 const axios = require('axios')
 
@@ -19,4 +19,8 @@ axios.get(`https://www.googleapis.com/books/v1/volumes?q=${SEARCH_TERM}&langRest
     console.error('faild', err);
   });
 
-  
+sequelize
+.sync({force: true})
+.then(()=>{
+    app.listen(3000);})
+.catch(err=>{console.log(err);});
